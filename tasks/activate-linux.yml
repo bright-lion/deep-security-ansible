@@ -20,7 +20,7 @@
     msg:
         - "Could not find command /opt/ds_agent/dsa_query to query DSA certificate."
         - "Please make sure Deep Security Agent has been installed"
-  when: dsaQuery.stat.exists != true
+  when: dsaQuery.stat.exists|bool
 
 # *********************************************************************
 # * Check if DSA activated already
@@ -91,5 +91,5 @@
   with_items:
     - /opt/ds_agent/dsa_control -r
     - /opt/ds_agent/dsa_control -a {{ dsa_control_argument }}
-  when: isActivated != true or force_reactivation != false
+  when: isActivated|bool or force_reactivation|bool
   become: true
