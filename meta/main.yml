@@ -40,6 +40,7 @@ galaxy_info:
       - precise
       - trusty
       - xenial
+      - bionic
     - name: Windows
       versions:
       - 2012R2
